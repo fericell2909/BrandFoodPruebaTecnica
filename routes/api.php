@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('listproducts', 'API\ProductController@list_products');
-
+Route::get('listorders', 'API\OrdersController@list_orders');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

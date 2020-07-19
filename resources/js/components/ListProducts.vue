@@ -5,8 +5,8 @@
                    placeholder="Escriba el Nombre y presione Enter" v-model="searchquery"/>
         <br>
         <div class="row">
-            <article class="item  col-xs-12 col-sm-4 col-lg-3" v-for="item in items" v-bind:key="item.id">
-                <div class="thumbnail">
+            <article class="item  col-xs-1 col-sm-4 col-lg-3" v-for="item in items" v-bind:key="item.id">
+                <div class="thumbnail item__container" >
                     <img class="image  item__image"
                         :src="item.linkimage" loading="lazy"  />
                         <div class="caption">
@@ -78,6 +78,24 @@
         </div>
     </div>
 </template>
+<style>
+    .item
+    {
+        display: flex;
+        flex-flow: row wrap;
+       justify-content: flex-start;
+    }
+    .item__container
+    {
+        flex: 1
+    }
+    .item__image
+    {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
 <script>
     export default {
         data() {
@@ -164,18 +182,19 @@
 
             },
             registerOrder(){
-
-                window.axios.get('/clientsorder').then(response => {
-
+                let records_post =  this.recordsorders;
+                let self = this;
+                window.axios.post('/api/clientsorder', {
+                        data: records_post
+                    }).then(response => {
                             let data = response.data;
-
                             Swal.fire(data.message);
-
-                            this.resetRecords();
-
+                            //self.resetRecords();
                     })
                     .catch(e => {
-                        console.log(e);
+                        Swal.fire(e);
+                    }).then(function() {
+                        self.resetRecords();
                     });
 
             },

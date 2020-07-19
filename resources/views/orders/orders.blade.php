@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Orders </div>
                 <div class="panel-body">
-                    <component-orders></component-orders>
+                    <component-orders ref="ordercomponent"></component-orders>
                 </div>
             </div>
         </div>

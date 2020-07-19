@@ -37,16 +37,16 @@ class TestDesign extends Migration
         });
 
         DB::table('Products')->insert([
-            ['description' => 'Ceviche Clasico'],
-            ['description' => 'Ceviche Mixto'],
-            ['description' => 'Chicharron de Pescado'],
-            ['description' => 'Chicharron Mixto'],
-            ['description' => 'Aji de Gallina'],
-            ['description' => 'Arroz con Mariscos'],
-            ['description' => 'Cabrito'],
-            ['description' => 'Arroz con Pato'],
-            ['description' => 'Carapulcra'],
-            ['description' => 'Lengua Guisada'],
+            ['description' => 'Ceviche Clasico' , 'link_image' => 'https://picsum.photos/110/110?random'],
+            ['description' => 'Ceviche Mixto'  , 'link_image' => 'https://picsum.photos/142/145?random'],
+            ['description' => 'Seco de Pollo'  , 'link_image' => 'https://picsum.photos/143/144?random'],
+            ['description' => 'Chicharron Mixto'  , 'link_image' => 'https://picsum.photos/147/165?random'],
+            ['description' => 'Aji de Gallina'  , 'link_image' => 'https://picsum.photos/142/148?random'],
+            ['description' => 'Arroz con Mariscos'  , 'link_image' => 'https://picsum.photos/109/125?random'],
+            ['description' => 'Cabrito'  , 'link_image' => 'https://picsum.photos/113/112?random'],
+            ['description' => 'Arroz con Pato'  , 'link_image' => 'https://picsum.photos/200/180?random'],
+            ['description' => 'Carapulcra'  , 'link_image' => 'https://picsum.photos/125/115?random'],
+            ['description' => 'Lengua Guisada' , 'link_image' => 'https://picsum.photos/135/145?random'],
             ]);
 
         // End Table : Products

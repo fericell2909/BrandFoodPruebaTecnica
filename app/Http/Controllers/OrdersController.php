@@ -21,6 +21,10 @@ class OrdersController extends Controller
 
     }
 
+    public function list_orders()
+    {
+        return Orders::list_orders();
+    }
     public function registerorder(Request $request , Auth $auth)
     {
 
@@ -30,7 +34,7 @@ class OrdersController extends Controller
         $new_code = 0;
         $orders = [];
 
-        Orders::save_order($data, Auth::user()->id , $reply_message , $new_code , $orders);
+        Orders::save_order($data['data'], Auth::user()->id , $reply_message , $new_code , $orders);
 
         if( $new_code > 0 )
         {

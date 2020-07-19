@@ -29,18 +29,19 @@ class Orders extends Model
 		     			]
 				 	);
 
-               $records = count($data);
+               $records_count = count($data);
 
                 // Insert in Detail.
 
-            	  for ($i=0; $i < $records; $i++) {
+
+            	  for ($i=0; $i < $records_count; $i++) {
 
                		$order_detail = new OrderDetail();
 
                        $order_detail->order_id =  $new_code;
-                       $order_detail->product_id = $data[$i]['product_id'];
+                       $order_detail->product_id = $data[$i]['id'];
                        $order_detail->quantity = $data[$i]['quantity'];
-                       $order_detail->createdd_at = date_create()->format('Y-m-d H:i:s');
+                       $order_detail->created_at = date_create()->format('Y-m-d H:i:s');
                        $order_detail->updated_at = date_create()->format('Y-m-d H:i:s');
 
                		   $order_detail->save();
