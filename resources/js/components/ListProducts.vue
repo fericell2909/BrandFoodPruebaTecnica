@@ -13,21 +13,23 @@
                             <p class="group inner list-group-item-heading text-center">
                                 {{ item.description }}
                             </p>
-                            <div class="row text-center">
+                            <div class="row">
+                            <div class="col-md-12 text-center">
                                 <component-itemquantity
                                     :quantity="item.quantity"
                                     ttype="1" @click="ChangeQuantityItem()"
                                     @UpdteQuantityItem="UpdateQuantityItemProduct"
-                                    :id="item.id" >
+                                    :id="item.id" class="mr-1">
                                 </component-itemquantity>
-                                <label class="label label-primary"  >{{item.quantity}}</label>
+                                <label class="label label__item__quantity ml-4"   >{{item.quantity}}</label>
                                 <component-itemquantity
                                     :quantity="item.quantity"
                                     ttype="2"
                                     @click="ChangeQuantityItem()"
                                     @UpdteQuantityItem="UpdateQuantityItemProduct"
-                                    :id="item.id">
+                                    :id="item.id" class="ml-4">
                                 </component-itemquantity>
+                            </div>
                             </div>
                         </div>
                 </div>
@@ -43,7 +45,7 @@
             <ul class="fab-options">
                 <li>
                     <span class="fab-label" id="Order">
-                    <label for="" class="label label-primary">Detalle de Pedido</label>
+                    <label for="" class="label order__tittle">Detalle de Pedido</label>
                         <div v-if="recordsorders.length === 0" class="alert alert-success">
                             Aun no ha Agregago un Producto
                          </div>
@@ -76,101 +78,6 @@
         </div>
     </div>
 </template>
-<style>
-.item__image{
-    max-height: 80px;
-    max-width: 80px;
-}
-
-.fab-container {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    z-index: 999;
-
-}
-
-.fab-icon-holder {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    background: #016fb9;
-
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.fab-icon-holder:hover {
-    opacity: 0.8;
-}
-
-.fab-icon-holder i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 100%;
-    font-size: 25px;
-    color: #ffffff;
-}
-
-.fab {
-    width: 60px;
-    height: 60px;
-    background: #d23f31;
-}
-
-.fab-options {
-    list-style-type: none;
-    margin: 0;
-
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-
-    opacity: 0;
-
-    transition: all 0.3s ease;
-    transform: scale(0);
-    transform-origin: 85% bottom;
-}
-
-.fab:hover+.fab-options,
-.fab-options:hover {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.fab-options li {
-    display: flex;
-    justify-content: flex-end;
-    padding: 5px;
-}
-
-.fab-label {
-    padding: 2px 5px;
-    align-self: center;
-    user-select: none;
-    white-space: nowrap;
-    border-radius: 3px;
-    font-size: 16px;
-    background: #ffffff;
-    color: #666666;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    margin-right: 10px;
-}
-
- #mute {
-        position: absolute;
-      }
-      #mute.on {
-        opacity: 0.7;
-        z-index: 1000;
-        background: white;
-        height: 100%;
-        width: 100%;
-      }
-
-</style>
 <script>
     export default {
         data() {
@@ -240,6 +147,12 @@
                     });
 
             },
+            resetRecords(){
+
+                this.records.forEach((element) => { element.quantity = 0 });
+                this.recordsorders.forEach((element) => { element.quantity = 0 });
+                this.recordsorders.length = 0;
+            },
             totalAmount(t){
 
                 let total = 0;
@@ -253,10 +166,12 @@
             registerOrder(){
 
                 window.axios.get('/clientsorder').then(response => {
-                        //console.log(response.data);
-                        //let data = response.data;
-                        //data.forEach(product => this.records.push({id : product.id , quantity : 0 , description : product.description, linkimage : product.linkimage })
-                        console.log(response);
+
+                            let data = response.data;
+
+                            Swal.fire(data.message);
+
+                            this.resetRecords();
 
                     })
                     .catch(e => {

@@ -12,10 +12,14 @@
 
     <link rel="shortcut icon" href="{{{ asset('favicon.png') }}}">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> Styles -->
 
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/brandfood.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="mute"></div>
@@ -81,26 +85,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <style>
-        body
-        {
-            background-image: url('/img/login.jpg');
-        }
-        body::before{
-        content: "";
-        display: block;
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: #005bea;
-        background: -webkit-linear-gradient(bottom, #005bea, #00c6fb);
-        background: -o-linear-gradient(bottom, #005bea, #00c6fb);
-        background: -moz-linear-gradient(bottom, #005bea, #00c6fb);
-        background: linear-gradient(bottom, #005bea, #00c6fb);
-        opacity: 0.9;
-    }
+
 </body>
 </html>

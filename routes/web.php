@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/clientsorder','OrdersController@registerorder')->name('orders');
+Route::get('/orders','OrdersController@show')->name('orders');
