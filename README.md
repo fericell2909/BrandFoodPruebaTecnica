@@ -75,6 +75,13 @@ Repositorio de las Fuentes de la Entrevista Tecnica en la compañia BrandFood
     VIII)  Ingresar a la aplicacion en la url proporcionada por artisan serve.
     
 
+### Imagenes
 
+Inicio
+<img src="/imagesrepo/inicio.png" alt="Bienvenido"/>
 
-    
+Login
+<img src="/imagesrepo/login.png" alt="Iniciar Sesion"/>
+
+Aplicacion
+<img src="/imagesrepo/aplicacion.png" alt="Aplicacion"/>
