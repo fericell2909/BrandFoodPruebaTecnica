@@ -1,6 +1,15 @@
 Repositorio de las Fuentes de la Entrevista Tecnica en la compañia BrandFood
 ![N|Solid](https://brandfood.com.pe/static/favicon.png)![N|Solid](https://laravel.com/assets/img/components/logo-laravel.svg)![N|Solid](https://vuejs.org/images/icons/apple-icon-57x57.png)
 
+### Descripcion de Solicitud
+
+    Realizar una pequeña aplicación en Laravel (mínimo) y VueJS (opcional) que permita crear órdenes en tiempo
+    real usando Laravel Echo
+
+### Stack
+
+    ---> Se realizo lo solicitado utilizando Laravel , Vue.js , Pusher. 
+
 ### Consideraciones
     --->  Las fuentes se encuentran en el framework laravel version 7
     --->  Se requiere php version 7.2.5 o superior
